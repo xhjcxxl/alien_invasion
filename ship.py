@@ -25,6 +25,7 @@ class Ship:
         self.moving_down = False
 
     def blitme(self):
+        """ 在指定位置绘制飞船图片 """
         self.screen.blit(self.image, self.rect)
 
     def update(self):
