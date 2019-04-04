@@ -34,15 +34,23 @@ class Ship:
         # right 是 rect的右边界
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.center_FL += self.ai_settings.ship_speed_factor
+            self.rect.centerx = self.center_FL
         # left 是 rect的左边界
         if self.moving_left and self.rect.left > 0:
             self.center_FL -= self.ai_settings.ship_speed_factor
+            self.rect.centerx = self.center_FL
         # bottom 是 rect的底边界
         if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.center_UD += self.ai_settings.ship_speed_factor
+            self.rect.bottom = self.center_UD
         # top 是 rect的顶边界
         if self.moving_up and self.rect.top > 0:
             self.center_UD -= self.ai_settings.ship_speed_factor
-        # 给飞船赋坐标
-        self.rect.centerx = self.center_FL
-        self.rect.bottom = self.center_UD
+            self.rect.bottom = self.center_UD
+
+    def center_ship(self):
+        """ 让飞船重置位置 """
+        self.rect.centerx = self.screen_rect.centerx
+        self.rect.bottom = self.screen_rect.bottom
+        self.center_FL = float(self.rect.centerx)
+        self.center_UD = float(self.rect.bottom)
