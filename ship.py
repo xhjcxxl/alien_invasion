@@ -54,3 +54,7 @@ class Ship:
         self.rect.bottom = self.screen_rect.bottom
         self.center_FL = float(self.rect.centerx)
         self.center_UD = float(self.rect.bottom)
+
+        # 外星人重置速度
+        # self.ai_settings.alien_speed_factor = 0.1
+        # self.ai_settings.fleet_drop_speed = 2
